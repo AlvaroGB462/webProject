@@ -14,7 +14,6 @@ public class UserService {
 
     private final RestTemplate restTemplate;
 
-    // Inyección de dependencias del RestTemplate
     @Autowired
     public UserService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
@@ -25,8 +24,8 @@ public class UserService {
         User user = restTemplate.getForObject(url, User.class);
 
         if (user != null && BCrypt.checkpw(password, user.getPasswordHash())) {
-            return user; // Retorna el usuario autenticado si las credenciales son correctas
+            return user; // Si las credenciales son correctas, devuelve el usuario
         }
-        return null; // Si no se encuentra el usuario o las credenciales son incorrectas
+        return null; // Si las credenciales son incorrectas
     }
 }

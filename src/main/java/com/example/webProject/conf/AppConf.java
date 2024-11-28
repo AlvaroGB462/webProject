@@ -11,4 +11,5 @@ public class AppConf {
     public RestTemplate restTemplate() {
         return new RestTemplate();  // Devuelve una instancia de RestTemplate
     }
+    
 }
